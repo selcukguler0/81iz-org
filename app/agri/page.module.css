@@ -1,0 +1,564 @@
+/* /agri — Ağrı Pilot Report.
+   Shares teal/saffron palette via global tokens; nav + footer come from site.module.css. */
+
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 48px 0 0;
+}
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.breadcrumb a {
+  color: var(--ink-3);
+}
+.breadcrumb .sep {
+  opacity: 0.4;
+}
+.breadcrumb .here {
+  color: var(--teal);
+  font-weight: 600;
+}
+.heroH1 {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 24px 0 32px;
+  font-weight: 400;
+}
+.heroH1 em {
+  font-style: italic;
+  color: var(--teal);
+}
+.heroLede {
+  font-size: 19px;
+  max-width: 640px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin: 0 0 32px;
+}
+
+.pilotMeta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 72px;
+}
+.pmL {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.pmV {
+  font-size: 22px;
+  font-weight: 500;
+}
+.pmVTeal {
+  color: var(--teal);
+}
+.pmVMuted {
+  color: var(--ink-3);
+}
+
+/* ---- Split section ---- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 72px;
+  margin-bottom: 96px;
+  align-items: start;
+}
+.splitReverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+.splitH2 {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin: 12px 0 24px;
+}
+.splitP {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0 0 20px;
+}
+.phImg {
+  min-height: 460px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--bg-alt) 0px,
+    var(--bg-alt) 10px,
+    var(--bg) 10px,
+    var(--bg) 20px
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 24px;
+  text-align: center;
+}
+.phImg::after {
+  content: attr(data-label);
+  white-space: pre-line;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+
+/* ---- Data grid cards ---- */
+.dataGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 32px 0;
+}
+.dataGridTwo {
+  grid-template-columns: repeat(2, 1fr);
+}
+.dgCard {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 24px;
+}
+.dgV {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--teal);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.dgCardAccent .dgV {
+  color: var(--saffron-600);
+}
+.dgL {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 12px;
+}
+.dgTrend {
+  font-size: 12px;
+  margin-top: 8px;
+  color: var(--teal);
+  font-weight: 500;
+}
+.dgTrendSaffron {
+  color: var(--saffron-600);
+}
+
+/* ---- Section head (shared agri layout) ---- */
+.sectionHead {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+.sectionH2 {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin: 12px 0 0;
+}
+.sectionLede {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---- Agri map with dots ---- */
+.agriMap {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+.agriMapSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.agriDot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--saffron);
+  border: 3px solid var(--bg);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.agriDot:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+}
+.agriDot::after {
+  content: attr(data-name);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.agriDot:hover::after {
+  opacity: 1;
+}
+.agriMapLabel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---- Schools grid ---- */
+.schools {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 32px 0;
+}
+.school {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px 16px;
+  text-align: center;
+}
+.schoolNum {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+.schoolH5 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin: 8px 0 4px;
+  font-weight: 500;
+}
+.schoolSt {
+  font-size: 12px;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.schoolSt::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: inline-block;
+}
+
+/* ---- Quote block ---- */
+.quoteBlock {
+  background: var(--teal-700);
+  color: var(--bg);
+  padding: 72px 64px;
+  border-radius: var(--r-xl);
+  margin: 72px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.quoteMark {
+  font-family: var(--font-display);
+  font-size: 80px;
+  line-height: 0.5;
+  color: var(--saffron);
+}
+.quoteH2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.quoteAuthor {
+  margin-top: 24px;
+  font-size: 14px;
+  opacity: 0.7;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.quoteStats {
+  border-left: 1px solid rgba(253, 248, 239, 0.2);
+  padding-left: 48px;
+}
+.qStat {
+  margin-bottom: 28px;
+}
+.qStat:last-child {
+  margin-bottom: 0;
+}
+.qStatN {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 1;
+  color: var(--saffron);
+  letter-spacing: -0.03em;
+}
+.qStatL {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+/* ---- Timeline ---- */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  margin: 48px 0 96px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--line);
+}
+.tlEvent {
+  position: relative;
+  padding-bottom: 40px;
+}
+.tlEvent::before {
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--teal);
+}
+.tlEventMajor::before {
+  background: var(--saffron);
+  border-color: var(--saffron-600);
+}
+.tlDate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.tlH4 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 4px 0 8px;
+  letter-spacing: -0.015em;
+}
+.tlP {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---- Budget ---- */
+.budgetBar {
+  display: flex;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 24px 0 16px;
+  border: 1px solid var(--line);
+}
+.budgetSeg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: white;
+  font-weight: 500;
+}
+.budgetLegend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 32px;
+  font-size: 13px;
+}
+.budgetItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+.budgetSq {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.budgetAmt {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.budgetSection {
+  padding: 48px 0 96px;
+}
+
+/* ---- Footer CTA ---- */
+.footerCta {
+  text-align: center;
+  padding: 96px 0;
+}
+.footerCtaH2 {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin: 16px 0 24px;
+  line-height: 1;
+}
+.footerCtaH2 em {
+  font-style: italic;
+  color: var(--teal);
+}
+.footerCtaP {
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 560px;
+  margin: 24px auto 40px;
+  line-height: 1.5;
+}
+.footerCtaActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1000px) {
+  .pilotMeta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .split,
+  .splitReverse {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .sectionHead {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .dataGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .schools {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .quoteBlock {
+    grid-template-columns: 1fr;
+    padding: 48px 32px;
+    gap: 32px;
+  }
+  .quoteStats {
+    border-left: none;
+    border-top: 1px solid rgba(253, 248, 239, 0.2);
+    padding-left: 0;
+    padding-top: 32px;
+  }
+  .quoteH2 {
+    font-size: 28px;
+  }
+  .budgetLegend {
+    grid-template-columns: 1fr;
+  }
+  .splitH2,
+  .sectionH2 {
+    font-size: 32px;
+  }
+  .footerCtaH2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 20px;
+  }
+  .schools {
+    grid-template-columns: 1fr;
+  }
+  .dataGrid {
+    grid-template-columns: 1fr;
+  }
+}

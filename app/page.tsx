@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HomeEffects from "./HomeEffects";
+import LetterForm from "./LetterForm";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -48,14 +49,24 @@ export default function Home() {
                 </span>
               </div>
               <h1 className={styles.heroH1}>
-                81 ilde <em>kız çocuklarının</em> geleceği için{" "}
-                <span className={styles.heroUnderline}>tek</span> bir iz.
+                81 ilde çocukların ve <em>kız çocuklarının</em> geleceği için{" "}
+                <span className={styles.heroBookmark} aria-label="tek">
+                  <svg
+                    className={styles.heroBookmarkIcon}
+                    viewBox="0 0 24 32"
+                    aria-hidden
+                  >
+                    <path d="M3 2h18v28l-9-7-9 7V2z" />
+                  </svg>
+                  <span className={styles.heroBookmarkText}>tek</span>
+                </span>{" "}
+                bir iz.
               </h1>
               <p className={styles.heroLede}>
-                81iz, Türkiye&apos;nin her ilindeki kız çocukları ve dezavantajlı
-                çocuklar için eğitimde fırsat eşitliği hedefleyen bir sosyal
-                girişim. Saha operasyonunu teknoloji ile birleştiriyoruz;
-                bağışçı, gönüllü ve öğrenciyi tek bir ekosistemde buluşturuyoruz.
+                81iz platformu, üç farklı paydaş grubunun sürdürülebilir
+                entegrasyonuna dayalı bir sistem; bağışlar, gönüllülük saatleri
+                ve ders içerikleri gibi tüm girdilerin şeffaf bir veri seti
+                olarak raporlanmasını temel alır.
               </p>
               <div className={styles.heroCta}>
                 <a
@@ -226,9 +237,9 @@ export default function Home() {
               </h2>
             </div>
             <p className={styles.sectionLede}>
-              81iz platformu üç farklı paydaş grubunu aynı sürdürülebilir
-              sistemde buluşturuyor. Her bağış, her gönüllü saati, her ders
-              izlenebilir bir veri olarak raporlanıyor.
+              81iz sistemi; bağışçı, gönüllü ve mentör gibi tüm paydaşların
+              katkılarını — bağışları, gönüllülük saatlerini ve ders içeriklerini
+              — şeffaf bir veri seti olarak raporlar.
             </p>
           </div>
 
@@ -520,6 +531,113 @@ export default function Home() {
               <Link href="/seffaflik" className={styles.chartFootLink}>
                 Tüm veriyi incele →
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== MEKTUPLAR ========== */}
+      <section className={styles.lettersSection} id="mektuplar">
+        <div className={styles.wrap}>
+          <div className={styles.sectionHead}>
+            <div>
+              <div className={styles.eyebrow}>Kalemden Kalbe</div>
+              <h2 className={styles.sectionH2}>
+                Bir <em>mektup</em> bir iz bırakır.
+              </h2>
+            </div>
+            <p className={styles.sectionLede}>
+              Ağrı&apos;dan bize ulaşan el yazılarını oku, sen de bir çocuğa
+              cesaret veren birkaç satır yaz. Tüm mektuplar köy okullarımıza
+              ulaştırılıyor.
+            </p>
+          </div>
+
+          <div className={styles.lettersGrid}>
+            {/* Mektup Yaz */}
+            <div className={styles.letterWrite}>
+              <div className={styles.letterBadge}>
+                <span className={styles.letterBadgeDot} /> Mektup Yaz
+              </div>
+              <h3 className={styles.letterH3}>
+                Bir çocuğa birkaç satır bırak.
+              </h3>
+              <p className={styles.letterIntro}>
+                İsmin, bir selam, belki küçük bir tavsiye — fazlası değil.
+                Mektubun saha ekibimizle doğrudan bir öğrenciye ulaşır.
+              </p>
+              <LetterForm
+                formClass={styles.letterForm}
+                labelClass={styles.letterLabel}
+                inputClass={styles.letterInput}
+                textareaClass={styles.letterTextarea}
+                footClass={styles.letterFormFoot}
+                submitClass={styles.letterSubmit}
+                hintClass={styles.letterHint}
+                successClass={styles.letterSuccess}
+                successShowClass={styles.letterSuccessShow}
+              />
+            </div>
+
+            {/* Gelen Mektupları Oku */}
+            <div className={styles.letterRead}>
+              <div className={styles.letterBadge}>
+                <span
+                  className={`${styles.letterBadgeDot} ${styles.letterBadgeDotSaffron}`}
+                />{" "}
+                Gelen Mektupları Oku
+              </div>
+              <h3 className={styles.letterH3}>Ağrı&apos;dan satırlar.</h3>
+
+              <article className={styles.letterCard}>
+                <p className={styles.letterCardBody}>
+                  &ldquo;Geçen hafta gönüllü ablalar geldi. Bana bir defter
+                  getirdiler, üzerinde adım yazıyordu. İlk defa kendi adımı
+                  görmek çok güzeldi. Ben büyüyünce öğretmen olmak
+                  istiyorum.&rdquo;
+                </p>
+                <div className={styles.letterCardMeta}>
+                  <span className={styles.letterCardName}>— Elif, 9</span>
+                  <span className={styles.letterCardPlace}>
+                    Doğubayazıt köy okulu
+                  </span>
+                </div>
+              </article>
+
+              <article className={styles.letterCard}>
+                <p className={styles.letterCardBody}>
+                  &ldquo;Benim en çok sevdiğim ders matematik. Mentor
+                  öğretmenimle her çarşamba telefondan çözüyoruz. O bana
+                  &apos;sen çok akıllısın&apos; diyor. Büyüyünce mühendis
+                  olacağım.&rdquo;
+                </p>
+                <div className={styles.letterCardMeta}>
+                  <span className={styles.letterCardName}>— Hasan, 11</span>
+                  <span className={styles.letterCardPlace}>
+                    Taşlıçay köy okulu
+                  </span>
+                </div>
+              </article>
+
+              <article className={styles.letterCard}>
+                <p className={styles.letterCardBody}>
+                  &ldquo;Ablalar bize kütüphane kurdular. İçinde resim
+                  kitapları var. Kardeşime her akşam okuyorum. Bir gün ben de
+                  onlar gibi sahaya gitmek istiyorum.&rdquo;
+                </p>
+                <div className={styles.letterCardMeta}>
+                  <span className={styles.letterCardName}>— Betül, 12</span>
+                  <span className={styles.letterCardPlace}>
+                    Diyadin köy okulu
+                  </span>
+                </div>
+              </article>
+
+              <div className={styles.letterFoot}>
+                <span className={styles.letterFootCount}>
+                  Toplam <strong>214</strong> mektup · 5 köy okulu
+                </span>
+              </div>
             </div>
           </div>
         </div>
